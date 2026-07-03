@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magazine Leticia LTDA</title>
+  <meta name="og:title" content="Magazine Leticia LTDA" />
+  <meta name="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Magazine Leticia LTDA" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #7a0f1f;
+      --primary-2: #9c1526;
+      --accent: #f0a500;
+      --accent-dark: #cc8800;
+      --light-bg: #fbf5ec;
+      --white: #ffffff;
+      --text: #241816;
+      --muted: #6b5a56;
+      --border: #ecdfd0;
+      --footer-bg: #4a0a14;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans Pro', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, .nav-brand, .logo-initial {
+      font-family: 'Georgia', 'Iowan Old Style', 'Palatino Linotype', serif;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      border-bottom: 1px solid rgba(240,165,0,0.3);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-brand .logo-initial {
+      background: var(--accent);
+      color: var(--primary);
+      width: 36px;
+      height: 36px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      list-style: none;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .btn-nav {
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 3px;
+      font-weight: 700;
+    }
+    .nav-links .btn-nav:hover { background: var(--accent-dark); color: var(--white); }
+
+    /* HERO */
+    #home {
+      background:
+        linear-gradient(135deg, rgba(122,15,31,0.94) 0%, rgba(156,21,38,0.94) 100%),
+        repeating-linear-gradient(135deg, rgba(240,165,0,0.06) 0 2px, transparent 2px 40px);
+      color: var(--white);
+      padding: 5.5rem 2rem 4.5rem;
+      text-align: center;
+    }
+    #home .eyebrow {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    #home h1 {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      line-height: 1.25;
+    }
+    #home p {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      font-family: 'Source Sans Pro', sans-serif;
+      color: rgba(255,255,255,0.85);
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.75rem 1.6rem;
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-dark); color: var(--white); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 0.75rem 1.6rem;
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+    /* SECTIONS */
+    section { padding: 4.5rem 2rem; }
+    .container { max-width: 920px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 0.6rem;
+    }
+    h2 {
+      font-size: clamp(1.4rem, 3vw, 1.95rem);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.3rem;
+      line-height: 1.3;
+    }
+    p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    /* SOBRE */
+    #sobre { background: var(--light-bg); }
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    @media (max-width: 640px) { .sobre-grid { grid-template-columns: 1fr; } }
+    .sobre-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 1.6rem;
+    }
+    .sobre-box h3 {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--accent-dark);
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+    }
+    .sobre-box p { font-size: 0.95rem; }
+
+    /* SERVIÇOS / ATIVIDADES */
+    #servicos { background: var(--white); }
+    .services-list {
+      list-style: none;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    .services-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.9rem 1.3rem;
+      font-size: 0.94rem;
+      color: var(--text);
+    }
+    .services-list .tag {
+      flex-shrink: 0;
+      background: var(--primary);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      margin-top: 1px;
+      white-space: nowrap;
+    }
+    .services-list .tag.principal { background: var(--accent); color: var(--primary); }
+    .services-toggle {
+      margin-top: 1.2rem;
+      background: none;
+      border: 1px solid var(--accent-dark);
+      color: var(--accent-dark);
+      padding: 0.55rem 1.2rem;
+      border-radius: 3px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .services-toggle:hover { background: var(--accent); color: var(--primary); border-color: var(--accent); }
+    .services-extra { display: none; }
+    .services-extra.active { display: flex; }
+
+    /* DADOS */
+    #dados { background: var(--light-bg); }
+    .dados-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: var(--white);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    .dados-table tr { border-bottom: 1px solid var(--border); }
+    .dados-table tr:last-child { border-bottom: none; }
+    .dados-table td {
+      padding: 0.9rem 1.15rem;
+      font-size: 0.93rem;
+    }
+    .dados-table td:first-child {
+      font-weight: 700;
+      color: var(--primary);
+      width: 38%;
+      background: #f3e3c8;
+    }
+    .dados-table td:last-child { color: var(--text); }
+    .dados-table a { color: var(--accent-dark); text-decoration: none; }
+    .dados-table a:hover { text-decoration: underline; }
+    .badge-ativa {
+      display: inline-block;
+      background: #1f6f4a;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.15rem 0.6rem;
+      border-radius: 3px;
+    }
+
+    /* TITULAR / SÓCIOS */
+    #socios { background: var(--white); }
+    .socio-card {
+      margin-top: 2rem;
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem 1.7rem;
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+    .socio-card + .socio-card { margin-top: 1rem; }
+    .socio-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 4px;
+      background: var(--primary);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      font-family: 'Georgia', serif;
+    }
+    .socio-card h3 { font-size: 1.02rem; color: var(--primary); margin-bottom: 0.25rem; font-family: 'Georgia', serif; }
+    .socio-card p { font-size: 0.9rem; margin-bottom: 0; font-family: 'Source Sans Pro', sans-serif; }
+
+    /* MISSÃO */
+    #missao { background: var(--primary); color: var(--white); }
+    #missao h2 { color: var(--white); }
+    #missao p { color: rgba(255,255,255,0.82); }
+    .missao-highlight {
+      margin-top: 2rem;
+      background: rgba(255,255,255,0.08);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 1.3rem 1.5rem;
+      font-size: 0.97rem;
+      color: rgba(255,255,255,0.92);
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    /* CONTATO */
+    #contato-section { background: var(--light-bg); }
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 800px) { .contato-grid { grid-template-columns: 1fr; } }
+    .contato-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+    }
+    .contato-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 0.6rem; font-family: 'Georgia', serif; }
+    .contato-card p { font-size: 0.93rem; font-family: 'Source Sans Pro', sans-serif; }
+    .contato-card a { color: var(--accent-dark); text-decoration: none; }
+    .contato-card a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      background: var(--footer-bg);
+      color: rgba(255,255,255,0.6);
+      padding: 2.2rem 2rem;
+      font-size: 0.82rem;
+      text-align: center;
+      line-height: 1.8;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    footer strong { color: rgba(255,255,255,0.9); font-family: 'Georgia', serif; }
+    .footer-links {
+      margin-top: 0.9rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+    .back-top {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.35rem 0.85rem;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(30,5,8,0.6);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: var(--white);
+      border-radius: 6px;
+      max-width: 660px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 2rem;
+      position: relative;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    .modal-box h2 { font-size: 1.2rem; margin-bottom: 1rem; font-family: 'Georgia', serif; }
+    .modal-box h3 { font-size: 0.95rem; color: var(--accent-dark); margin: 1.2rem 0 0.4rem; }
+    .modal-box p, .modal-box li { font-size: 0.88rem; color: var(--muted); }
+    .modal-box ul { padding-left: 1.2rem; }
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: none; border: none;
+      font-size: 1.3rem; cursor: pointer; color: var(--muted);
+    }
+
+    /* MOBILE NAV */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="home">
+  <a class="nav-brand" href="#home">
+    <span class="logo-initial">M</span>
+    MAGAZINE LETICIA
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Atividades</a></li>
+    <li><a href="#dados">Dados oficiais</a></li>
+    <li><a href="https://wa.me/5513991376455?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="btn-nav" target="_blank" rel="noopener">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero-section" style="padding:0;">
+  <div id="home" style="padding:5.5rem 2rem 4.5rem; text-align:center;">
+    <div class="eyebrow">Magazine • Papelaria • Utilidades</div>
+    <h1>Magazine Leticia LTDA</h1>
+    <p>Variedade, qualidade e bom atendimento para o dia a dia da sua casa, do seu escritório e da sua família, em Imperatriz e região.</p>
+    <p style="color:rgba(255,255,255,0.85); max-width:680px; margin:0 auto 2rem;">Atuamos com uma linha completa de produtos: papelaria, informática, vestuário, móveis, eletrodomésticos, brinquedos e muito mais, tudo em um só lugar.</p>
+    <div class="hero-btns">
+      <a href="#servicos" class="btn-primary">Conhecer atividades</a>
+      <a href="https://wa.me/5513991376455?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="btn-secondary" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="section-label">QUEM SOMOS?</div>
+    <h2>Quem somos</h2>
+    <p><strong>Magazine Leticia LTDA</strong>, registrada sob o CNPJ 02.670.550/0001-43 e com início de atividades em 10/08/1998, está localizada em Imperatriz/MA.</p>
+    <p>A empresa atua no comércio varejista de artigos de papelaria como atividade principal, contando ainda com diversas atividades secundárias que abrangem material elétrico, informática, vestuário, móveis, eletrodomésticos, livros, brinquedos e muito mais. Conforme seu cadastro público, é constituída como Sociedade Empresária Limitada, enquadrada como Micro Empresa e optante pelo Simples Nacional desde 01/01/2023.</p>
+    <div class="sobre-grid">
+      <div class="sobre-box">
+        <h3>Nossa atuação</h3>
+        <p>Há mais de 27 anos oferecendo variedade e praticidade aos nossos clientes, unimos um mix amplo de produtos a um atendimento próximo, buscando ser a referência em compras do dia a dia em Imperatriz e região.</p>
+      </div>
+      <div class="sobre-box">
+        <h3>Endereço cadastral</h3>
+        <p>Avenida Dorgival Pinheiro de Sousa, 845<br>Centro<br>Imperatriz – MA, CEP 65903-270</p>
+        <p style="margin-top:0.8rem;">Na Magazine Leticia, valorizamos a confiança dos nossos clientes, a diversidade de produtos e o compromisso com um atendimento de qualidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS / ATIVIDADES -->
+<section id="servicos">
+  <div class="container">
+    <div class="section-label">O QUE FAZEMOS</div>
+    <h2>Atividades e serviços</h2>
+    <ul class="services-list">
+      <li><span class="tag principal">Principal</span> Comércio varejista de artigos de papelaria (CNAE 47.61-0-03)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de material elétrico (CNAE 47.42-3-00)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista especializado de equipamentos e suprimentos de informática (CNAE 47.51-2-01)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de artigos do vestuário e acessórios (CNAE 47.81-4-00)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de móveis (CNAE 47.54-7-01)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista especializado de eletrodomésticos e equipamentos de áudio e vídeo (CNAE 47.53-9-00)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de livros (CNAE 47.61-0-01)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de jornais e revistas (CNAE 47.61-0-02)</li>
+    </ul>
+    <ul class="services-list services-extra" id="extra-services">
+      <li><span class="tag">Secundária</span> Comércio varejista especializado de equipamentos de telefonia e comunicação (CNAE 47.52-1-00)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista especializado de instrumentos musicais e acessórios (CNAE 47.56-3-00)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de brinquedos e artigos recreativos (CNAE 47.63-6-01)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de outros artigos de uso pessoal e doméstico não especificados anteriormente (CNAE 47.59-8-99)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de equipamentos para escritório (CNAE 47.89-0-07)</li>
+      <li><span class="tag">Secundária</span> Recarga de cartuchos para equipamentos de informática (CNAE 47.51-2-02)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de artigos esportivos (CNAE 47.63-6-02)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de artigos de armarinho (CNAE 47.55-5-02)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de artigos de colchoaria (CNAE 47.54-7-02)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de materiais de construção em geral (CNAE 47.44-0-99)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de mercadorias em geral, com predominância de produtos alimentícios (CNAE 47.12-1-00)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de artigos de cama, mesa e banho (CNAE 47.55-5-03)</li>
+      <li><span class="tag">Secundária</span> Comércio varejista de artigos de iluminação (CNAE 47.54-7-03)</li>
+    </ul>
+    <button class="services-toggle" id="toggle-services">Ver todas as atividades ↓</button>
+  </div>
+</section>
+
+<!-- DADOS OFICIAIS -->
+<section id="dados">
+  <div class="container">
+    <div class="section-label">REGISTRO PÚBLICO</div>
+    <h2>Dados oficiais</h2>
+    <table class="dados-table">
+      <tr><td>Razão Social</td><td>Magazine Leticia LTDA</td></tr>
+      <tr><td>Nome Fantasia</td><td>Magazine Leticia LTDA</td></tr>
+      <tr><td>CNPJ</td><td>02.670.550/0001-43</td></tr>
+      <tr><td>Data de Abertura</td><td>10/08/1998 (27 anos, 10 meses e 24 dias)</td></tr>
+      <tr><td>Porte</td><td>Micro Empresa</td></tr>
+      <tr><td>Natureza Jurídica</td><td>Sociedade Empresária Limitada</td></tr>
+      <tr><td>Opção pelo MEI</td><td>Não</td></tr>
+      <tr><td>Opção pelo Simples</td><td>Sim</td></tr>
+      <tr><td>Data Opção Simples</td><td>01/01/2023</td></tr>
+      <tr><td>Capital Social</td><td>R$ 50.000,00</td></tr>
+      <tr><td>Tipo</td><td>Matriz</td></tr>
+      <tr><td>Situação Cadastral</td><td><span class="badge-ativa">ATIVA</span></td></tr>
+      <tr><td>Data da Situação</td><td>23/12/2000</td></tr>
+      <tr><td>Atividade Principal (CNAE)</td><td>47.61-0-03 — Comércio varejista de artigos de papelaria</td></tr>
+      <tr><td>Atividades Secundárias (CNAE)</td><td>47.42-3-00, 47.51-2-01, 47.81-4-00, 47.54-7-01, 47.53-9-00, 47.61-0-01, 47.61-0-02, 47.52-1-00, 47.56-3-00, 47.63-6-01, 47.59-8-99, 47.89-0-07, 47.51-2-02, 47.63-6-02, 47.55-5-02, 47.54-7-02, 47.44-0-99, 47.12-1-00, 47.55-5-03, 47.54-7-03</td></tr>
+      <tr><td>Endereço</td><td>Avenida Dorgival Pinheiro de Sousa, 845 — Centro, Imperatriz – MA, CEP 65903-270</td></tr>
+      <tr><td>Município</td><td><a href="https://cnpj.biz/empresas/imperatriz-ma" target="_blank" rel="noopener">Imperatriz</a></td></tr>
+      <tr><td>Estado</td><td><a href="https://cnpj.biz/empresas/estado/MA" target="_blank" rel="noopener">Maranhão</a></td></tr>
+      <tr><td>Telefone</td><td>(13) 99137-6455</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- QUADRO DE SÓCIOS -->
+<section id="socios">
+  <div class="container">
+    <div class="section-label">QUADRO DE SÓCIOS E ADMINISTRADORES</div>
+    <h2>Sócios e administradores</h2>
+    <div class="socio-card">
+      <div class="socio-avatar">E</div>
+      <div>
+        <h3>Elisangela dos Santos Coelho</h3>
+        <p>Sócio-Administrador — Qualificação do responsável pela empresa</p>
+      </div>
+    </div>
+    <div class="socio-card">
+      <div class="socio-avatar">F</div>
+      <div>
+        <h3>Felipe Santos Coelho</h3>
+        <p>Administrador</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSÃO -->
+<section id="missao">
+  <div class="container">
+    <div class="section-label" style="color:rgba(255,255,255,0.65);">NOSSA MISSÃO</div>
+    <h2>Nossa missão</h2>
+    <p>A missão da Magazine Leticia LTDA é oferecer aos nossos clientes um mix completo e diversificado de produtos, com qualidade, preço justo e atendimento acolhedor, sendo referência em comércio varejista em Imperatriz/MA e região.</p>
+    <div class="missao-highlight">
+      Nosso compromisso é aproximar as pessoas dos produtos que precisam no dia a dia, com variedade, confiança e um atendimento sempre próximo, transparente e comprometido com o crescimento sustentável.
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato-section">
+  <div class="container">
+    <div class="section-label">FALE CONOSCO</div>
+    <h2>Contato</h2>
+    <div class="contato-grid">
+      <div class="contato-card">
+        <h3>📞 Telefone</h3>
+        <p><a href="tel:+5513991376455">(13) 99137-6455</a></p>
+      </div>
+      <div class="contato-card">
+        <h3>💬 WhatsApp</h3>
+        <p><a href="https://wa.me/5513991376455?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener">Chamar no WhatsApp →</a></p>
+      </div>
+      <div class="contato-card">
+        <h3>✉️ E-mail</h3>
+        <p><a href="mailto:contato@magazineleticialtda.com.br">contato@magazineleticialtda.com.br</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Magazine Leticia LTDA</strong><br>
+  CNPJ: 02.670.550/0001-43 | Data de Abertura: 10/08/1998 | Porte: Micro Empresa | Natureza Jurídica: Sociedade Empresária Limitada | Situação Cadastral: ATIVA | Tipo: MATRIZ | Capital Social: R$ 50.000,00 | Endereço: Avenida Dorgival Pinheiro de Sousa, 845, Centro, Imperatriz – MA, CEP 65903-270 | E-mail: contato@magazineleticialtda.com.br<br><br>
+  ©️ 2026 Magazine Leticia LTDA. Todos os direitos reservados.
+  <div class="footer-links">
+    <a href="#" id="privacy-link">Política de Privacidade</a>
+    <a href="#home" class="back-top">Voltar ao topo ↑</a>
+  </div>
+</footer>
+
+<!-- MODAL PRIVACIDADE -->
+<div class="modal-overlay" id="privacy-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close-btn">✕</button>
+    <h2>Política de Privacidade</h2>
+    <p><strong>Magazine Leticia LTDA</strong><br>
+    CNPJ: 02.670.550/0001-43<br>
+    Endereço: Avenida Dorgival Pinheiro de Sousa, 845, Centro, Imperatriz – MA, CEP 65903-270</p>
+
+    <h3>1. Finalidade</h3>
+    <p>Esta Política de Privacidade descreve como a Magazine Leticia LTDA coleta, utiliza, armazena e protege dados pessoais de clientes, parceiros, fornecedores e usuários que interagem conosco por meio de nossos canais de comunicação ou durante a compra e uso de nossos produtos e serviços.</p>
+
+    <h3>2. Dados Coletados</h3>
+    <p>Coletamos apenas os dados necessários para as finalidades descritas nesta política, incluindo:</p>
+    <ul>
+      <li>Nome, e-mail, telefone e informações necessárias ao atendimento;</li>
+      <li>Registros de comunicação, compras, propostas e histórico de atendimento;</li>
+      <li>Dados de navegação (quando aplicável), conforme políticas das plataformas utilizadas.</li>
+    </ul>
+
+    <h3>3. Uso dos Dados</h3>
+    <p>Os dados pessoais coletados são utilizados para:</p>
+    <ul>
+      <li>Prestação e gestão dos serviços e vendas realizadas;</li>
+      <li>Comunicação operacional, administrativa e comercial;</li>
+      <li>Cumprimento de obrigações legais e regulatórias;</li>
+      <li>Melhoria contínua dos serviços e processos internos.</li>
+    </ul>
+
+    <h3>4. Compartilhamento de Dados</h3>
+    <p>Não comercializamos dados pessoais. O compartilhamento ocorre apenas com parceiros essenciais à execução dos serviços, mediante confidencialidade, ou quando exigido por lei, ordem judicial ou autoridade competente.</p>
+
+    <h3>5. Direitos do Titular (LGPD)</h3>
+    <p>Nos termos da LGPD (Lei nº 13.709/2018), o titular pode solicitar confirmação de tratamento, acesso, correção, anonimização, bloqueio, eliminação, portabilidade e revogação de consentimentos.</p>
+
+    <h3>6. Armazenamento e Segurança</h3>
+    <p>Adotamos medidas técnicas e administrativas adequadas para proteger os dados pessoais contra acessos não autorizados, perdas ou divulgações indevidas.</p>
+
+    <h3>7. Contato</h3>
+    <p>📞 Telefone: (13) 99137-6455<br>✉️ E-mail: contato@magazineleticialtda.com.br</p>
+
+    <p style="margin-top:1.2rem; font-size:0.8rem;">Magazine Leticia LTDA — CNPJ 02.670.550/0001-43 — ©️ 2026. Todos os direitos reservados.</p>
+  </div>
+</div>
+
+<script>
+  const privacyLink = document.getElementById('privacy-link');
+  const privacyModal = document.getElementById('privacy-modal');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+
+  privacyLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    privacyModal.classList.add('active');
+  });
+  modalCloseBtn.addEventListener('click', () => {
+    privacyModal.classList.remove('active');
+  });
+  privacyModal.addEventListener('click', (e) => {
+    if (e.target === privacyModal) privacyModal.classList.remove('active');
+  });
+
+  const toggleBtn = document.getElementById('toggle-services');
+  const extraServices = document.getElementById('extra-services');
+  toggleBtn.addEventListener('click', () => {
+    extraServices.classList.toggle('active');
+    toggleBtn.textContent = extraServices.classList.contains('active')
+      ? 'Ver menos atividades ↑'
+      : 'Ver todas as atividades ↓';
+  });
+</script>
+
+</body>
+</html>
